@@ -1,0 +1,84 @@
+/* =============================================
+   EUROPA — Panel Barbero (barbero.html)
+   Complementa: style.css + panel.css
+   ============================================= */
+
+.chip-rol {
+  display: inline-block;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--negro);
+  background-color: var(--oro);
+  padding: 7px 16px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.lista-citas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.cita-card {
+  border: 1px solid rgba(15, 15, 15, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  background-color: var(--fondo);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cita-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--oro);
+  box-shadow: 0 14px 30px rgba(15, 15, 15, 0.1);
+}
+
+.cita-hora {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: #8a6100;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.cita-card h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--negro);
+  margin-bottom: 4px;
+}
+
+.cita-card p {
+  font-size: 0.84rem;
+  font-weight: 300;
+  color: var(--gris-medio);
+  margin-bottom: 12px;
+}
+
+.cita-card .fila-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Inventario en modo consulta */
+
+.solo-lectura {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gris-suave);
+  border: 1px dashed var(--gris-claro);
+  border-radius: 100px;
+  padding: 7px 14px;
+}
+
+.precio {
+  font-weight: 500;
+  color: var(--negro);
+}

@@ -1,0 +1,541 @@
+/* =====================================================
+   modulos/mantenimiento/servicios/css/servicios.css
+   Estilos del módulo Servicios:
+   - Toggle de pestañas
+   - Tarjetas de combos
+   - Formulario embebido de combo
+   ===================================================== */
+
+/* ---------- SVG del toggle (y por defecto en el módulo) ---------- */
+.toggle-catalogo svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   TOGGLE DE PESTAÑAS
+   ===================================================== */
+.toggle-catalogo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f5f1e8;
+  border: 1px solid #e5dfd3;
+  border-radius: 999px;
+  padding: 5px;
+  margin: 18px 0 24px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.toggle-catalogo .toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b6354;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+}
+
+.toggle-catalogo .toggle-btn:hover {
+  color: #3a3325;
+}
+
+.toggle-catalogo .toggle-btn.activo {
+  background: #1a1a1a;
+  color: #f5f1e8;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-catalogo .toggle-btn.activo svg {
+  stroke: #f5f1e8;
+}
+
+@media (max-width: 480px) {
+  .toggle-catalogo {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .toggle-catalogo .toggle-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+    flex: 1;
+    justify-content: center;
+  }
+  .toggle-catalogo .toggle-btn span {
+    display: none;
+  }
+  .toggle-catalogo .toggle-btn::after {
+    content: attr(data-tab);
+    text-transform: capitalize;
+    font-size: 12px;
+  }
+}
+
+/* =====================================================
+   CONTROL DE PESTAÑAS (ocultar/mostrar)
+   ===================================================== */
+.tab-catalogo {
+  display: none;
+}
+
+.tab-catalogo.activo {
+  display: block;
+  animation: fadeInTab 0.25s ease;
+}
+
+@keyframes fadeInTab {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Vista embebida (formulario de combo) — oculta por defecto */
+.vista-embebida {
+  display: none;
+}
+
+.vista-embebida.activo {
+  display: block;
+  animation: fadeInTab 0.25s ease;
+}
+
+/* =====================================================
+   BOTÓN "VOLVER A COMBOS"
+   ===================================================== */
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: transparent;
+  border: 1px solid #e5dfd3;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b6354;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 16px;
+}
+
+.btn-volver:hover {
+  background: #faf8f4;
+  border-color: #d4c8a8;
+  color: #3a3325;
+}
+
+/* =====================================================
+   GRID DE COMBOS (tarjetas)
+   ===================================================== */
+.grid-combos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 18px;
+}
+
+@media (max-width: 640px) {
+  .grid-combos {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ---------- Tarjeta de combo ---------- */
+.card-combo {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #ece6d9;
+  border-radius: 16px;
+  padding: 20px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.22s ease;
+}
+
+.card-combo:hover {
+  border-color: #d4c8a8;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Badge POPULAR */
+.badge-popular {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #c9a961;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+/* Ícono del combo */
+.combo-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.combo-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #fdf6e3;
+  color: #b18d3d;
+}
+
+.combo-icono svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Nombre del combo */
+.card-combo h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2a2419;
+  margin: 2px 0 0;
+  line-height: 1.3;
+}
+
+/* Descripción */
+.combo-desc {
+  font-size: 13px;
+  color: #7a7264;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Lista de servicios */
+.combo-lista {
+  list-style: none;
+  padding: 12px 14px;
+  margin: 4px 0 0;
+  background: #faf8f4;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #4a4237;
+  line-height: 1.8;
+}
+
+.combo-lista li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.combo-lista li.bebida {
+  color: #b18d3d;
+  font-weight: 500;
+}
+
+.combo-lista .bullet {
+  color: #c9a961;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Bloque de precios */
+.combo-precios {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 6px;
+}
+
+.precio-original {
+  font-size: 13px;
+  color: #9a9285;
+  text-decoration: line-through;
+}
+
+.precio-combo {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.1;
+}
+
+.ahorro {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2d8a4a;
+}
+
+/* Footer del combo (duración + acciones) */
+.combo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid #f0ebe0;
+}
+
+.combo-footer .duracion {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b6354;
+}
+
+.combo-footer .duracion svg {
+  width: 14px;
+  height: 14px;
+  color: #c9a961;
+}
+
+.combo-acciones {
+  display: flex;
+  gap: 6px;
+}
+
+/* Reutilizamos .btn-accion pero adaptado a tarjetas */
+.card-combo .btn-accion {
+  font-size: 12px;
+  padding: 6px 12px;
+}
+
+/* =====================================================
+   FORMULARIO EMBEBIDO DE COMBO
+   ===================================================== */
+
+/* Buscador + botón "Mostrar todos" */
+.buscador-combo-wrap {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+
+.buscador-combo-wrap .buscador {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* Contenedor de resultados de búsqueda */
+.resultados-servicios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.resultados-servicios:empty {
+  display: none;
+}
+
+/* Tarjeta individual de resultado */
+.resultado-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #ffffff;
+  border: 1px solid #ece6d9;
+  border-radius: 10px;
+  transition: all 0.18s ease;
+}
+
+.resultado-item:hover {
+  border-color: #d4c8a8;
+  background: #faf8f4;
+}
+
+.resultado-item .info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.resultado-item .info strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2a2419;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resultado-item .info small {
+  font-size: 11px;
+  color: #9a9285;
+}
+
+.resultado-item .btn-add {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #c9a961;
+  color: #ffffff;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.resultado-item .btn-add:hover {
+  background: #b18d3d;
+  transform: scale(1.08);
+}
+
+/* Cuadro del combo (donde se van agregando los servicios) */
+.cuadro-combo {
+  background: #faf8f4;
+  border: 2px dashed #e5dfd3;
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 100px;
+  margin-bottom: 14px;
+}
+
+.cuadro-combo.tiene-items {
+  border-style: solid;
+  border-color: #ece6d9;
+  background: #ffffff;
+}
+
+.cuadro-vacio {
+  text-align: center;
+  color: #9a9285;
+  font-size: 13px;
+  font-style: italic;
+  margin: 0;
+  padding: 20px 0;
+}
+
+/* Cada servicio agregado al combo */
+.item-agregado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #ffffff;
+  border: 1px solid #ece6d9;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  animation: aparecerItem 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.item-agregado:last-child {
+  margin-bottom: 0;
+}
+
+.item-agregado .info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.item-agregado .info strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2a2419;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-agregado .info .precio {
+  font-size: 12px;
+  color: #7a7264;
+  flex-shrink: 0;
+}
+
+.item-agregado .btn-remove {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: transparent;
+  color: #d9534f;
+  border: 1px solid #f0d4d2;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.item-agregado .btn-remove:hover {
+  background: #fce8e7;
+  border-color: #d9534f;
+}
+
+/* Animación "mágica" al agregar */
+@keyframes aparecerItem {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(-10px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.03) translateY(0);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 640px) {
+  .buscador-combo-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .buscador-combo-wrap .btn-linea {
+    width: 100%;
+  }
+  .resultados-servicios {
+    grid-template-columns: 1fr;
+    max-height: 260px;
+  }
+  .toggle-catalogo {
+    border-radius: 14px;
+  }
+  .toggle-catalogo .toggle-btn {
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,64 @@
+/* =============================================
+   EUROPA — Panel Cajera (cajera.html)
+   Complementa: style.css + panel.css
+   ============================================= */
+
+.chip-rol {
+  display: inline-block;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--negro);
+  background-color: var(--oro);
+  padding: 7px 16px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.form-agendar {
+  max-width: 780px;
+}
+
+.form-agendar .grid-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.hint-descuento {
+  font-size: 0.74rem;
+  font-weight: 300;
+  color: var(--gris-suave);
+  margin-top: 4px;
+}
+
+.aviso-caja {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border: 1px solid rgba(201, 169, 110, 0.45);
+  background: rgba(201, 169, 110, 0.1);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 22px;
+}
+
+.aviso-caja span {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--gris-medio);
+  line-height: 1.6;
+}
+
+.aviso-caja strong { color: var(--negro); font-weight: 500; }
+
+.form-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.stock-num { font-weight: 500; color: var(--negro); }
+
+.tabla-panel input[readonly] { opacity: 0.75; }

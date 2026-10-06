@@ -1,0 +1,105 @@
+/* =====================================================
+   modulos/seguridad/modulos/css/modulos.css
+   Estilos específicos del módulo "Módulos".
+   ===================================================== */
+
+/* ---------- Grid de checkboxes de permisos (dentro del modal) ---------- */
+.grid-permisos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+
+@media (max-width: 480px) {
+  .grid-permisos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Cada checkbox de permiso ---------- */
+.check-permiso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #faf8f4;
+  border: 1px solid #e5dfd3;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.check-permiso:hover {
+  background: #f5f1e8;
+  border-color: #d4c8a8;
+}
+
+.check-permiso input[type="checkbox"] {
+  /* Ocultamos el checkbox nativo */
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.check-permiso .ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #9b8a5e;
+  transition: color 0.18s ease;
+}
+
+.check-permiso .ico svg {
+  width: 18px;
+  height: 18px;
+}
+
+.check-permiso > span:last-child {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a4237;
+}
+
+/* Estado marcado */
+.check-permiso:has(input:checked) {
+  background: #fdf6e3;
+  border-color: #c9a961;
+  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.12);
+}
+
+.check-permiso:has(input:checked) .ico {
+  color: #b18d3d;
+}
+
+.check-permiso:has(input:checked) > span:last-child {
+  color: #7a6320;
+  font-weight: 600;
+}
+
+/* Fallback por si el navegador no soporta :has() */
+.check-permiso.activo {
+  background: #fdf6e3;
+  border-color: #c9a961;
+  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.12);
+}
+
+.check-permiso.activo .ico {
+  color: #b18d3d;
+}
+
+.check-permiso.activo > span:last-child {
+  color: #7a6320;
+  font-weight: 600;
+}
+
+/* ---------- Badge "asignado" en el switch (por si lo usamos) ---------- */
+.card-modulo .estado-modulo {
+  transition: background 0.18s ease, color 0.18s ease;
+}

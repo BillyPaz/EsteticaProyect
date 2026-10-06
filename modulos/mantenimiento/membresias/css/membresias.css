@@ -1,0 +1,159 @@
+/* =====================================================
+   modulos/mantenimiento/membresias/css/membresias.css
+   Estilos del módulo Membresías:
+   - Toggle de pestañas (reutiliza estilos base)
+   - Buscador de cliente con autocompletado
+   - Cliente seleccionado (chip)
+   ===================================================== */
+
+/* ---------- SVG del toggle ---------- */
+.toggle-catalogo svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   BUSCADOR DE CLIENTE CON AUTOCOMPLETADO
+   ===================================================== */
+.resultados-busqueda {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #ffffff;
+  border: 1px solid #ece6d9;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+  max-height: 240px;
+  overflow-y: auto;
+  display: none;
+}
+
+.resultados-busqueda.abierto {
+  display: block;
+}
+
+.resultados-busqueda .resultado-cliente {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  border-bottom: 1px solid #f5f1e8;
+}
+
+.resultados-busqueda .resultado-cliente:last-child {
+  border-bottom: none;
+}
+
+.resultados-busqueda .resultado-cliente:hover {
+  background: #faf8f4;
+}
+
+.resultados-busqueda .resultado-cliente .info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.resultados-busqueda .resultado-cliente .info strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2a2419;
+}
+
+.resultados-busqueda .resultado-cliente .info small {
+  font-size: 11px;
+  color: #9a9285;
+}
+
+.resultados-busqueda .sin-resultados {
+  padding: 14px;
+  text-align: center;
+  font-size: 12px;
+  color: #9a9285;
+  font-style: italic;
+}
+
+/* ---------- Chip: cliente seleccionado ---------- */
+.cliente-seleccionado {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: #fdf6e3;
+  border: 1px solid #c9a961;
+  border-radius: 8px;
+}
+
+.cliente-seleccionado.activo {
+  display: flex;
+}
+
+.cliente-seleccionado .info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cliente-seleccionado .info strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7a6320;
+}
+
+.cliente-seleccionado .info small {
+  font-size: 11px;
+  color: #9a8250;
+}
+
+.cliente-seleccionado .btn-quitar-cliente {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #d4c8a8;
+  color: #b18d3d;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.cliente-seleccionado .btn-quitar-cliente:hover {
+  background: #f5edd5;
+  border-color: #b18d3d;
+}
+
+/* ---------- Ajuste de posición del campo padre ---------- */
+.campo-panel {
+  position: relative;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 640px) {
+  .resultados-busqueda {
+    max-height: 200px;
+  }
+  .toggle-catalogo {
+    border-radius: 14px;
+  }
+  .toggle-catalogo .toggle-btn {
+    border-radius: 10px;
+  }
+}
